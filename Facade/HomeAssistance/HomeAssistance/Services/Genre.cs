@@ -1,4 +1,4 @@
-﻿namespace HomeAssistance
+﻿namespace HomeAssistance.Services
 {
     public enum Genre
     {

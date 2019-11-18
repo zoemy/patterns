@@ -5,24 +5,24 @@ namespace HomeAssistance.Clients
 {
     public class GoogleSpeaker
     {
-        private readonly INetflixService _netflixService;
-        private readonly ICalendarService _calendarService;
-        private readonly ISpotifyService _spotifyService;
+        private readonly IHomeAssistance _homeAssistance;
 
-        public GoogleSpeaker(INetflixService netflixService, ICalendarService calendarService, ISpotifyService spotifyService)
+        public GoogleSpeaker(IHomeAssistance homeAssistance)
         {
-            _netflixService = netflixService;
-            _calendarService = calendarService;
-            _spotifyService = spotifyService;
+            _homeAssistance = homeAssistance;
         }
 
 
-        public void GoodMorningCommand() {
-            _calendarService.GetEvents(DateTime.Today);
-            _calendarService.GetReminders(DateTime.Today);
-            int morningPlaylist = 1;
-            _spotifyService.Play(morningPlaylist);
+        public void WakeUp() {
+            Console.WriteLine("It's time to wake up. Your setup routine it's about to start!");
+            //Do some other stuffs
+            _homeAssistance.WakeUp();
         }
-
+        public void ArriveHome()
+        {
+            Console.WriteLine("Welcome home!");
+            //Do some other stuffs
+            _homeAssistance.ArriveHome();
+        }
     }
 }

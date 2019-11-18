@@ -17,7 +17,7 @@ namespace HomeAssistance.Services
 
         public List<string> GetReminders(DateTime date)
         {
-            throw new NotImplementedException();
+            return new List<string> { "Reminder 1", "Reminder 2" };
         }
     }
 }

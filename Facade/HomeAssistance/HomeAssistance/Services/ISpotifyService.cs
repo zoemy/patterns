@@ -7,5 +7,6 @@ namespace HomeAssistance.Services
         List<string> GetPlaylistsByGenre(int genreId);
         List<string> GetPlaylists();
         void Play(int PlaylistId);
+        void Play();
     }
 }

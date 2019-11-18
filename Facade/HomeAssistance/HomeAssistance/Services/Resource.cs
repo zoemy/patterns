@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HomeAssistance
+namespace HomeAssistance.Services
 {
     public class Resource
     {
