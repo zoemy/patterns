@@ -2,7 +2,7 @@
 
 namespace HomeAssistance.Services.Facade
 {
-    public class HomeAssistance
+    public class HomeAssistance: IHomeAssistance
     { 
         private readonly ICalendarService _calendarService;
         private readonly ISpotifyService _spotifyService;

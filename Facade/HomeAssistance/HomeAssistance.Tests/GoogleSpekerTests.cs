@@ -19,7 +19,7 @@ namespace HomeAssistance.Tests
         }
 
         [Test]
-        public void ArriveHome() {          
+        public void When_X_Expect_X() {          
             _googleSpeaker.ArriveHome();
             _homeAssistance.Verify(assistance => assistance.ArriveHome(), Times.Once);
         }
