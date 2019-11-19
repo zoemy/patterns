@@ -14,31 +14,21 @@ namespace HomeAssistance.Tests
         [SetUp]
         public void Init()
         {
-            _homeAssistance = GetHomeAssistance();
+            _homeAssistance = HomeAssistantMock.GetHomeAssistance();
             _googleSpeaker = new GoogleSpeaker(_homeAssistance.Object);
         }
 
         [Test]
-        public void When_X_Expect_X() {          
-            _googleSpeaker.ArriveHome();
-            _homeAssistance.Verify(assistance => assistance.ArriveHome(), Times.Once);
-        }
-
-        [Test]
-        public void WakeUpHome()
-        {
-            _googleSpeaker.WakeUp();
+        public void When_WokeUpCommandIsActivated_Expect_WokeHasBeenCalled() {          
+            _googleSpeaker.ActivateCommand(VoiceCommand.WokeUp);
             _homeAssistance.Verify(assistance => assistance.WakeUp(), Times.Once);
         }
 
-        private Mock<IHomeAssistance> GetHomeAssistance()
+        [Test]
+        public void When_ArriveHomeCommandIsActivated_Expect_ArriveHomeHasBeenCalled()
         {
-            var homeAssistance = new Mock<IHomeAssistance>();
-            homeAssistance.Setup(assistance => assistance.ArriveHome())
-                          .Verifiable();
-            homeAssistance.Setup(assistance => assistance.WakeUp())
-                          .Verifiable();
-            return homeAssistance;
+            _googleSpeaker.ActivateCommand(VoiceCommand.ArriveHomme);
+            _homeAssistance.Verify(assistance => assistance.ArriveHome(), Times.Once);
         }
 
     }
